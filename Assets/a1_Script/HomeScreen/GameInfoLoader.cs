@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameInfoLoader : MonoBehaviour
 {
@@ -22,16 +23,21 @@ public class GameInfoLoader : MonoBehaviour
     [SerializeField] private Image gameThumbnail;
     [SerializeField] private Button playThisGameButton;
 
+    [SerializeField] private GameObject loadingScreen;
+
     public void ShowGameInfo(GameInfo gameInfo)
     {
-        gameInfoPanel.SetActive(true);
         gameTitle.text = gameInfo.GameTitle;
         gameDescription.text = gameInfo.GameDescription;
         gameThumbnail.sprite = gameInfo.GameThumbnail;
         playThisGameButton.onClick.RemoveAllListeners();
         playThisGameButton.onClick.AddListener(() => {
-            // loadscene gameInfo.GameSceneName
+            // 1 show loading screen
+            loadingScreen.SetActive(true);
+            // 2 load scene
+            SceneManager.LoadSceneAsync(gameInfo.GameSceneName);
         });
+        gameInfoPanel.SetActive(true);
     }
 
 

@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <GameTitle>k__BackingField: Balls in Baskets
-  <GameSceneName>k__BackingField: BallBasket
+  <GameSceneName>k__BackingField: BallsBaskets
   gameDescription: Count how many balls are in each basket.
   <GameThumbnail>k__BackingField: {fileID: 21300000, guid: ad7bd53f8755d47b5846fac5f6dddf79, type: 3}
   <GameThumbnail_Image>k__BackingField: {fileID: 1608385502309783547}
