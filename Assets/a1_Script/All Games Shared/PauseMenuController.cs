@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
-    [SerializeField] private GameObject loadingScreen;
     [SerializeField] private GameObject pauseScreen;
 
 
@@ -26,8 +25,6 @@ public class PauseMenuController : MonoBehaviour
 
     public void GoToHomeScreen()
     {
-        // show loading first
-        loadingScreen.SetActive(true);
-        SceneManager.LoadSceneAsync("HomeScreen");
+        SceneLoader.LoadScene("HomeScreen");
     }
 }

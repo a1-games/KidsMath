@@ -228,7 +228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8015221819826229490
 Transform:
   m_ObjectHideFlags: 0
@@ -324,11 +324,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4458841181915400139}
+  - component: {fileID: 1335986890793297538}
   - component: {fileID: 7090104377628617745}
   - component: {fileID: 8598932837361526948}
   m_Layer: 0
   m_Name: BALL
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -353,6 +354,19 @@ Transform:
   - {fileID: 9063197353194241167}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1335986890793297538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202439711344538666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a872da67a587c804c8f5b03297945abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8598932837361526948}
 --- !u!135 &7090104377628617745
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -382,7 +396,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6202439711344538666}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -419,7 +433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7134573632635275870
 Transform:
   m_ObjectHideFlags: 0

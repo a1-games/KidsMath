@@ -23,7 +23,6 @@ public class GameInfoLoader : MonoBehaviour
     [SerializeField] private Image gameThumbnail;
     [SerializeField] private Button playThisGameButton;
 
-    [SerializeField] private GameObject loadingScreen;
 
     public void ShowGameInfo(GameInfo gameInfo)
     {
@@ -32,10 +31,8 @@ public class GameInfoLoader : MonoBehaviour
         gameThumbnail.sprite = gameInfo.GameThumbnail;
         playThisGameButton.onClick.RemoveAllListeners();
         playThisGameButton.onClick.AddListener(() => {
-            // 1 show loading screen
-            loadingScreen.SetActive(true);
             // 2 load scene
-            SceneManager.LoadSceneAsync(gameInfo.GameSceneName);
+            SceneLoader.LoadScene(gameInfo.GameSceneName);
         });
         gameInfoPanel.SetActive(true);
     }
