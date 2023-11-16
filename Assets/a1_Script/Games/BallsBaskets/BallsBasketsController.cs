@@ -80,6 +80,7 @@ public class BallsBasketsController : MonoBehaviour
 
         var biggestBasket = BallCounts[BasketID.Left] > BallCounts[BasketID.Right] ? BasketID.Left : BasketID.Right;
 
+
         if (basketID == biggestBasket && selectGreatest)
         {
             // we were correct about greatest

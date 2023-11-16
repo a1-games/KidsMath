@@ -1227,8 +1227,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 6202439711344538666, guid: 254f82ce1d3bf3a4ca44e3fa02884380, type: 3}
   spawnPoints:
-  - {fileID: 477838710}
-  - {fileID: 394933339}
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 477838710}
+    - Key: 1
+      Value: {fileID: 394933339}
 --- !u!114 &2068677380
 MonoBehaviour:
   m_ObjectHideFlags: 0

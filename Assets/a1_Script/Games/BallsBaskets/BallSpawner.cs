@@ -1,3 +1,4 @@
+using AYellowpaper.SerializedCollections;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,20 @@ using UnityEngine;
 public class BallSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject ballPrefab;
-    [SerializeField] private Transform[] spawnPoints;
+
+    [field: SerializeField]
+    [SerializedDictionary] private SerializedDictionary<BasketID, Transform> spawnPoints = new SerializedDictionary<BasketID, Transform>();
 
     private int ballsToBeSpawned = 3;
     public int BallsToBeSpawned { get => ballsToBeSpawned; }
     public int BallsThisRound { get; private set; }
+
+    private Dictionary<BasketID, int> SpawnedBallCounts { get; set; } = new Dictionary<BasketID, int>()
+    {
+        { BasketID.Left, 0 },
+        { BasketID.Right, 0 },
+    };
+
 
     private float currentCooldown = 0f;
     private float timer = 0f;
@@ -65,15 +75,38 @@ public class BallSpawner : MonoBehaviour
 
     private void SpawnOneBall()
     {
-        var zeroOrOne = Random.Range(0, 2);
+        var selectedBasket = Random.Range(0, 2) == 0 ? BasketID.Left : BasketID.Right;
 
-        var newBall = Instantiate(ballPrefab);
-        newBall.transform.position = spawnPoints[zeroOrOne].position;
+        // make sure the last ball is not a tiebreaker
+        if (ballsToBeSpawned == 1 &&
+            // skip if the total count is uneven ( no possibility of a tie )
+            SpawnedBallCounts[BasketID.Left] != SpawnedBallCounts[BasketID.Right]
+            )
+        {
+            var biggestBasket = BasketID.Left;
+            var smallestBasket = BasketID.Right;
+            // flip it if the above isnt true
+            if (SpawnedBallCounts[BasketID.Left] < SpawnedBallCounts[BasketID.Right])
+            {
+                biggestBasket = BasketID.Right;
+                smallestBasket = BasketID.Left;
+            }
+            print("big: " + SpawnedBallCounts[biggestBasket] + " small: " + SpawnedBallCounts[smallestBasket]);
 
-        var ballScript = newBall.GetComponent<Ball>();
-        ballScript.OnSpawn();
 
-        // note that one ball was spawned
+            // if the last ball is a tiebreaker, ALWAYS break the tie. NEVER end in a tie!
+            if (SpawnedBallCounts[smallestBasket] + 1 == SpawnedBallCounts[biggestBasket])
+            {
+                selectedBasket = biggestBasket;
+            }
+        }
+
+        // spawn ball
+        var ballScript = Instantiate(ballPrefab).GetComponent<Ball>();
+        ballScript.OnSpawn(spawnPoints[selectedBasket].position);
+        SpawnedBallCounts[selectedBasket]++;
+
+        // keep track
         ballsToBeSpawned--;
     }
 }

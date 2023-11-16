@@ -18,8 +18,9 @@ public class Ball : MonoBehaviour
 
     [field: SerializeField] public BallType BallType { get; private set; }
 
-    public void OnSpawn()
+    public void OnSpawn(Vector3 startPos)
     {
+        this.transform.position = startPos;
         this.transform.rotation = Quaternion.Euler(new Vector3(Random.Range(-4f, 4f), Random.Range(-4f, 4f), Random.Range(-4f, 4f)));
         this.rb.angularVelocity += new Vector3(Random.Range(-GameSettings.AskFor.BallFallSpeed, GameSettings.AskFor.BallFallSpeed),
                                                Random.Range(-GameSettings.AskFor.BallFallSpeed, GameSettings.AskFor.BallFallSpeed),
