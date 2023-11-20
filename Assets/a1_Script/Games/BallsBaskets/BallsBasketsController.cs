@@ -104,6 +104,9 @@ public class BallsBasketsController : MonoBehaviour
     private void CorrectAnswer()
     {
         print("Answer was correct");
+
+        // save the victory
+        GameSave.IncreaseSavedInt("BallsBaskets_WIN");
     }
 
 
@@ -111,6 +114,8 @@ public class BallsBasketsController : MonoBehaviour
     {
         print("Answer was incorrect");
 
+        // save the loss
+        GameSave.IncreaseSavedInt("BallsBaskets_LOSE");
     }
 
 
