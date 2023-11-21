@@ -19,4 +19,11 @@ public class SharedGameManager : MonoBehaviour
     {
         OnStartGameClicked?.Invoke();
     }
+
+    [SerializeField] private UnityEvent OnRestartGameClicked;
+
+    public void RestartGame()
+    {
+        OnRestartGameClicked?.Invoke();
+    }
 }

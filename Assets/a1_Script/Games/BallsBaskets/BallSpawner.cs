@@ -31,6 +31,15 @@ public class BallSpawner : MonoBehaviour
         spawnerIsActive = true;
     }
 
+    public void ResetSpawner()
+    {
+        spawnerIsActive = false;
+        BallsThisRound = GetNewBallCount();
+        ballsToBeSpawned = BallsThisRound;
+
+    }
+
+
     private void Start()
     {
         BallsThisRound = GetNewBallCount();

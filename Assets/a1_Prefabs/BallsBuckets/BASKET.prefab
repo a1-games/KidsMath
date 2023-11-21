@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3803816923318608156}
   - component: {fileID: 3898803438680925833}
   - component: {fileID: 7056218971057961572}
+  - component: {fileID: 2406106272195185374}
   m_Layer: 0
   m_Name: BASKET
   m_TagString: Basket
@@ -52,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <BasketID>k__BackingField: 0
+  outline: {fileID: 2406106272195185374}
 --- !u!33 &3803816923318608156
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -123,6 +125,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2406106272195185374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866497103045759497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showOnStart: 0
+  outlineMode: 3
+  outlineColor: {r: 0.514151, g: 0.87909317, b: 1, a: 0.5372549}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1561758994275145398
 GameObject:
   m_ObjectHideFlags: 0

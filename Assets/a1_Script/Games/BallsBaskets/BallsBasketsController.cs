@@ -22,6 +22,7 @@ public class BallsBasketsController : MonoBehaviour
 
     [SerializeField] private BallSpawner ballSpawner;
     [SerializeField] private BallType currentBallType;
+    [SerializeField] private Basket[] baskets;
 
     public Dictionary<BasketID, int> BallCounts { get; private set; } = new Dictionary<BasketID, int>()
     {
@@ -31,12 +32,28 @@ public class BallsBasketsController : MonoBehaviour
 
     private bool canClickBaskets = false;
 
+
+    public void ResetGame()
+    {
+        BallCounts.Clear();
+        BallCounts = new Dictionary<BasketID, int>() {
+            { BasketID.Left, 0 },
+            { BasketID.Right, 0 },
+        };
+
+
+        ballSpawner.ResetSpawner();
+
+        ballSpawner.ActivateSpawner();
+
+    }
+
+
+
     public void AddBallToBasket(BasketID basket)
     {
         BallCounts[basket]++;
-
-        print(" Left: " + BallCounts[BasketID.Left] + " Right: " + BallCounts[BasketID.Right]);
-
+        //print(" Left: " + BallCounts[BasketID.Left] + " Right: " + BallCounts[BasketID.Right]);
         CheckIfRoundOver();
     }
 
@@ -68,6 +85,12 @@ public class BallsBasketsController : MonoBehaviour
         roundOver_Text.text = "Click on the basket with the " + (selectGreatest ? "greatest" : "least") + " amount of " + currentBallType + "s.";
         roundOver_Panel.SetActive(true);
         canClickBaskets = true;
+
+        // outline the baskets
+        for (int i = 0; i < baskets.Length; i++)
+        {
+            baskets[i].Outlined = true;
+        }
     }
 
 
@@ -80,6 +103,15 @@ public class BallsBasketsController : MonoBehaviour
 
         var biggestBasket = BallCounts[BasketID.Left] > BallCounts[BasketID.Right] ? BasketID.Left : BasketID.Right;
 
+        roundOver_Panel.SetActive(false);
+        canClickBaskets = false;
+
+
+        // outline the baskets
+        for (int i = 0; i < baskets.Length; i++)
+        {
+            baskets[i].Outlined = false;
+        }
 
         if (basketID == biggestBasket && selectGreatest)
         {
@@ -96,7 +128,6 @@ public class BallsBasketsController : MonoBehaviour
         // else
         IncorrectAnswer();
 
-        canClickBaskets = false;
     }
 
 
@@ -104,6 +135,7 @@ public class BallsBasketsController : MonoBehaviour
     private void CorrectAnswer()
     {
         print("Answer was correct");
+        EmotePanel.AskFor.ShowCorrect();
 
         // save the victory
         GameSave.IncreaseSavedInt("BallsBaskets_WIN");
@@ -113,6 +145,7 @@ public class BallsBasketsController : MonoBehaviour
     private void IncorrectAnswer()
     {
         print("Answer was incorrect");
+        EmotePanel.AskFor.ShowIncorrect();
 
         // save the loss
         GameSave.IncreaseSavedInt("BallsBaskets_LOSE");

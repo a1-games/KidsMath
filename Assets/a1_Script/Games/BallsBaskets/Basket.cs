@@ -6,6 +6,25 @@ using UnityEngine;
 public class Basket : MonoBehaviour
 {
     [field: SerializeField] public BasketID BasketID { get; private set; }
+    [SerializeField] private Outline outline;
+
+    private bool outlined = false;
+    public bool Outlined
+    {
+        get
+        {
+            return outlined;
+        }
+        set
+        {
+            outlined = value;
+            if (outlined)
+                outline.Enable();
+            else
+                outline.Disable();
+        }
+    }
+
 
     public void OnBallEnteredBasket(Collider other)
     {
