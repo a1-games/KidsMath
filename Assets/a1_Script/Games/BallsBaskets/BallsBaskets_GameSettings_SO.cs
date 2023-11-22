@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "Difficulty_0", menuName = "ScriptableObjects/BallsBuckets/GameSettings", order = 1)]
-public class GameSettings_ScriptableObject : ScriptableObject
+public class BallsBaskets_GameSettings_SO : ScriptableObject
 {
     [Header("You have to selected the lowest number sometimes:")]
     // Should balls sometimes change baskets?

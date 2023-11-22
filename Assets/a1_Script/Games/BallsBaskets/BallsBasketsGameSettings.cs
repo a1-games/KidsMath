@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-public class GameSettings : MonoBehaviour
+public class BallsBasketsGameSettings : GameSettings
 {
-    private static GameSettings instance;
-    public static GameSettings AskFor { get => instance; }
+    private static BallsBasketsGameSettings instance;
+    public static BallsBasketsGameSettings AskFor { get => instance; }
 
-    [SerializeField] private GameSettings_ScriptableObject _gameSettings_SO;
+    [SerializeField] private BallsBaskets_GameSettings_SO _gameSettings_SO;
 
 
     // Should the player be able to guess least and greatest or only greats amount of balls?
@@ -36,16 +35,17 @@ public class GameSettings : MonoBehaviour
 
     // Fall Speed
     private float ballFallSpeed = 0.5f;
+
+
     public float BallFallSpeed { get => ballFallSpeed; }
 
-
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         instance = this;
-        CopySettingsFromSO();
     }
 
-    private void CopySettingsFromSO()
+    protected override void CopySettingsFromSO()
     {
         this.enableSelectingLeastBalls = _gameSettings_SO.EnableSelectingLeastBalls;
         this.enableBasketChange = _gameSettings_SO.EnableBasketChange;
@@ -61,6 +61,9 @@ public class GameSettings : MonoBehaviour
     }
 
 
-
+    public override void SetDifficultySO(ScriptableObject GameSettings_SO)
+    {
+        _gameSettings_SO = GameSettings_SO as BallsBaskets_GameSettings_SO;
+    }
 
 }

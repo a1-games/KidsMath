@@ -13,6 +13,10 @@ public class SharedGameManager : MonoBehaviour
         instance = this;
     }
 
+    [SerializeField] private GameSettings gameSettings;
+
+    // Events
+
     [SerializeField] private UnityEvent OnStartGameClicked;
 
     public void StartGame()
@@ -26,4 +30,5 @@ public class SharedGameManager : MonoBehaviour
     {
         OnRestartGameClicked?.Invoke();
     }
+
 }

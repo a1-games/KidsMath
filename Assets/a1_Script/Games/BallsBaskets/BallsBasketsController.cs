@@ -76,7 +76,7 @@ public class BallsBasketsController : MonoBehaviour
     private bool selectGreatest = true;
     public void OnRoundOver()
     {
-        if (GameSettings.AskFor.EnableSelectingLeastBalls)
+        if (BallsBasketsGameSettings.AskFor.EnableSelectingLeastBalls)
         {
             // ~50% chance of having to select the smallest number
             if (Random.Range(0, 2) == 0)

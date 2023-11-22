@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 265e6e0866c77094297596c2ece1f27d, type: 3}
-  m_Name: Difficulty_1
+  m_Name: Difficulty_2
   m_EditorClassIdentifier: 
   enableSelectingLeastBalls: 0
   enableBasketChange: 0
   enableSkyfall: 0
-  minBallCount: 2
-  maxBallCount: 8
-  minTimeBetweenSpawns: 1.84
-  maxTimeBetweenSpawns: 3.48
-  ballFallSpeed: 1.49
+  minBallCount: 8
+  maxBallCount: 12
+  minTimeBetweenSpawns: 1.3
+  maxTimeBetweenSpawns: 2.68
+  ballFallSpeed: 2.38

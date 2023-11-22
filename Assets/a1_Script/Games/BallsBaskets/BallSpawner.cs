@@ -77,12 +77,12 @@ public class BallSpawner : MonoBehaviour
 
     private float GetNextCooldown()
     {
-        return Random.Range(GameSettings.AskFor.MinTimeBetweenSpawns, GameSettings.AskFor.MaxTimeBetweenSpawns);
+        return Random.Range(BallsBasketsGameSettings.AskFor.MinTimeBetweenSpawns, BallsBasketsGameSettings.AskFor.MaxTimeBetweenSpawns);
     }
 
     private int GetNewBallCount()
     {
-        return Random.Range(GameSettings.AskFor.MinBallCount, GameSettings.AskFor.MaxBallCount + 1);
+        return Random.Range(BallsBasketsGameSettings.AskFor.MinBallCount, BallsBasketsGameSettings.AskFor.MaxBallCount + 1);
     }
 
     private void SpawnOneBall()

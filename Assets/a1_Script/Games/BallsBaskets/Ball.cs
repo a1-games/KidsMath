@@ -22,11 +22,11 @@ public class Ball : MonoBehaviour
     {
         this.transform.position = startPos;
         this.transform.rotation = Quaternion.Euler(new Vector3(Random.Range(-4f, 4f), Random.Range(-4f, 4f), Random.Range(-4f, 4f)));
-        this.rb.angularVelocity += new Vector3(Random.Range(-GameSettings.AskFor.BallFallSpeed, GameSettings.AskFor.BallFallSpeed),
-                                               Random.Range(-GameSettings.AskFor.BallFallSpeed, GameSettings.AskFor.BallFallSpeed),
-                                               Random.Range(-GameSettings.AskFor.BallFallSpeed, GameSettings.AskFor.BallFallSpeed));
+        this.rb.angularVelocity += new Vector3(Random.Range(-BallsBasketsGameSettings.AskFor.BallFallSpeed, BallsBasketsGameSettings.AskFor.BallFallSpeed),
+                                               Random.Range(-BallsBasketsGameSettings.AskFor.BallFallSpeed, BallsBasketsGameSettings.AskFor.BallFallSpeed),
+                                               Random.Range(-BallsBasketsGameSettings.AskFor.BallFallSpeed, BallsBasketsGameSettings.AskFor.BallFallSpeed));
         // fall speed is inverted for intution's sake in the inspector
-        this.rb.drag = 5f - GameSettings.AskFor.BallFallSpeed;
+        this.rb.drag = 5f - BallsBasketsGameSettings.AskFor.BallFallSpeed;
     }
 
 }
