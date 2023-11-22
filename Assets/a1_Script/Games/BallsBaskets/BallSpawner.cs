@@ -36,7 +36,10 @@ public class BallSpawner : MonoBehaviour
         spawnerIsActive = false;
         BallsThisRound = GetNewBallCount();
         ballsToBeSpawned = BallsThisRound;
-
+        SpawnedBallCounts = new Dictionary<BasketID, int>() {
+        { BasketID.Left, 0 },
+        { BasketID.Right, 0 },
+        };
     }
 
 

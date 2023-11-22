@@ -15,8 +15,8 @@ MonoBehaviour:
   enableSelectingLeastBalls: 0
   enableBasketChange: 0
   enableSkyfall: 0
-  minBallCount: 10
-  maxBallCount: 17
-  minTimeBetweenSpawns: 0.2
-  maxTimeBetweenSpawns: 1.08
+  minBallCount: 4
+  maxBallCount: 4
+  minTimeBetweenSpawns: 0.01
+  maxTimeBetweenSpawns: 0.5
   ballFallSpeed: 3.33
