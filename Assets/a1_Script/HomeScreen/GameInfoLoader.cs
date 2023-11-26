@@ -22,6 +22,7 @@ public class GameInfoLoader : MonoBehaviour
 
     [SerializeField] private Image gameThumbnail;
     [SerializeField] private Button playThisGameButton;
+    [SerializeField] private Button viewGameStatsButton;
 
 
     public void ShowGameInfo(GameInfo gameInfo)
@@ -32,7 +33,12 @@ public class GameInfoLoader : MonoBehaviour
         playThisGameButton.onClick.RemoveAllListeners();
         playThisGameButton.onClick.AddListener(() => {
             // 2 load scene
-            SceneLoader.LoadScene(gameInfo.GameSceneName);
+            SceneLoader.LoadScene(gameInfo.Game.ToString());
+        });
+        viewGameStatsButton.onClick.RemoveAllListeners();
+        viewGameStatsButton.onClick.AddListener(() => {
+            // load stats
+            StatsLoader.AskFor.LoadGameStatsInDifficulty(gameInfo);
         });
         gameInfoPanel.SetActive(true);
     }

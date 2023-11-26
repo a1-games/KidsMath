@@ -43,9 +43,6 @@ public class BallsBasketsController : MonoBehaviour
 
 
         ballSpawner.ResetSpawner();
-
-        ballSpawner.ActivateSpawner();
-
     }
 
 
@@ -138,7 +135,8 @@ public class BallsBasketsController : MonoBehaviour
         EmotePanel.AskFor.ShowCorrect();
 
         // save the victory
-        GameSave.IncreaseSavedInt("BallsBaskets_WIN");
+        var difficulty = BallsBasketsGameSettings.AskFor.Difficulty;
+        GameSave.IncreaseSavedInt($"{GlobalVariables.GameIDs[MyGames.BallsInBaskets]}_D{difficulty}_WIN");
     }
 
 
@@ -148,7 +146,8 @@ public class BallsBasketsController : MonoBehaviour
         EmotePanel.AskFor.ShowIncorrect();
 
         // save the loss
-        GameSave.IncreaseSavedInt("BallsBaskets_LOSE");
+        var difficulty = BallsBasketsGameSettings.AskFor.Difficulty;
+        GameSave.IncreaseSavedInt($"{GlobalVariables.GameIDs[MyGames.BallsInBaskets]}_D{difficulty}_LOSE");
     }
 
 

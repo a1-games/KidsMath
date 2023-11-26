@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 265e6e0866c77094297596c2ece1f27d, type: 3}
   m_Name: Difficulty_4
   m_EditorClassIdentifier: 
-  enableSelectingLeastBalls: 0
+  enableSelectingLeastBalls: 1
   enableBasketChange: 0
   enableSkyfall: 0
-  minBallCount: 12
-  maxBallCount: 41
+  minBallCount: 26
+  maxBallCount: 35
   minTimeBetweenSpawns: 1.01
   maxTimeBetweenSpawns: 1.32
-  ballFallSpeed: 4.33
+  ballFallSpeed: 4

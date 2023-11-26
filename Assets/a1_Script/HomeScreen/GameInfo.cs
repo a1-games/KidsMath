@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameInfo : MonoBehaviour
 {
     [field: SerializeField] public string GameTitle { get; private set; }
-    [field: SerializeField] public string GameSceneName { get; private set; }
+    [field: SerializeField] public MyGames Game { get; private set; }
     [TextArea]
     [SerializeField] private string gameDescription;
     public string GameDescription { get => gameDescription; }

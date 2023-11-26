@@ -19,4 +19,4 @@ MonoBehaviour:
   maxBallCount: 8
   minTimeBetweenSpawns: 1.84
   maxTimeBetweenSpawns: 3.48
-  ballFallSpeed: 1.49
+  ballFallSpeed: 1.5

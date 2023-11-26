@@ -39,10 +39,10 @@ public class BallsBasketsGameSettings : GameSettings
 
     public float BallFallSpeed { get => ballFallSpeed; }
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
         instance = this;
+        CopySettingsFromSO();
     }
 
     protected override void CopySettingsFromSO()
@@ -61,9 +61,11 @@ public class BallsBasketsGameSettings : GameSettings
     }
 
 
-    public override void SetDifficultySO(ScriptableObject GameSettings_SO)
+    public override void SetDifficultySO(ScriptableObject GameSettings_SO, int difficulty)
     {
         _gameSettings_SO = GameSettings_SO as BallsBaskets_GameSettings_SO;
+
+        base.SetDifficultySO(GameSettings_SO, difficulty);
     }
 
 }
