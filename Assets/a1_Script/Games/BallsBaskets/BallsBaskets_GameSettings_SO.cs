@@ -11,7 +11,8 @@ public class BallsBaskets_GameSettings_SO : ScriptableObject
 
     [Header("Ball Sometimes Switch Basket:")]
     // Should balls sometimes change baskets?
-    [SerializeField] private bool enableBasketChange = false;
+    [Range(0f, 1f)]
+    [SerializeField] private float chanceOfBasketChange = 0f;
 
     [Header("Sometimes Multiple Balls Drop At Once:")]
     // Should skyfall mode be enabled?
@@ -39,7 +40,7 @@ public class BallsBaskets_GameSettings_SO : ScriptableObject
 
     // Public Properties
     public bool EnableSelectingLeastBalls { get => enableSelectingLeastBalls; }
-    public bool EnableBasketChange { get => enableBasketChange; }
+    public float ChanceOfBasketChange { get => chanceOfBasketChange; }
     public bool EnableSkyfall { get => enableSkyfall; }
 
     public int MinBallCount { get => minBallCount; }

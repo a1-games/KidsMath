@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Difficulty_4
   m_EditorClassIdentifier: 
   enableSelectingLeastBalls: 1
-  enableBasketChange: 0
+  chanceOfBasketChange: 0.229
   enableSkyfall: 0
   minBallCount: 26
   maxBallCount: 35

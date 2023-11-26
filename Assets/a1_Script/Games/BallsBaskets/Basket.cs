@@ -28,8 +28,16 @@ public class Basket : MonoBehaviour
 
     public void OnBallEnteredBasket(Collider other)
     {
-        BallsBasketsController.AskFor.AddBallToBasket(BasketID);
-        Destroy(other.gameObject);
+        var ballScript = other.gameObject.GetComponent<Ball>();
+        if (ballScript.SwitchBasket)
+        {
+            ballScript.JumpToOtherBasket(BasketID);
+        }
+        else // if its already in the correct basket, just collect it
+        {
+            BallsBasketsController.AskFor.AddBallToBasket(BasketID);
+            Destroy(other.gameObject);
+        }
     }
 
 }

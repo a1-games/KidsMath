@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 60731399917653818}
   - component: {fileID: 470975956147642851}
   - component: {fileID: 2294495701011324843}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: color ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 8394800357291652018}
   - component: {fileID: 1253334386482165000}
   - component: {fileID: 6917292525587866880}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: volleyball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 4727733837712494212}
   - component: {fileID: 4945331091116200348}
   - component: {fileID: 2684953041384593349}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 1335986890793297538}
   - component: {fileID: 7090104377628617745}
   - component: {fileID: 8598932837361526948}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BALL
   m_TagString: Ball
   m_Icon: {fileID: 0}
@@ -366,7 +366,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a872da67a587c804c8f5b03297945abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 8598932837361526948}
+  <Rb>k__BackingField: {fileID: 8598932837361526948}
+  <BallType>k__BackingField: 0
+  <SwitchBasket>k__BackingField: 0
 --- !u!135 &7090104377628617745
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -427,7 +429,7 @@ GameObject:
   - component: {fileID: 6349325491202622525}
   - component: {fileID: 6236825973766141592}
   - component: {fileID: 2992465429850178645}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: football
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +534,7 @@ GameObject:
   - component: {fileID: 6741292360501299982}
   - component: {fileID: 8260848513682499693}
   - component: {fileID: 313964214950696546}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: onion
   m_TagString: Untagged
   m_Icon: {fileID: 0}

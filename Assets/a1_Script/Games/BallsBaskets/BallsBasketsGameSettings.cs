@@ -14,8 +14,9 @@ public class BallsBasketsGameSettings : GameSettings
     public bool EnableSelectingLeastBalls { get => enableSelectingLeastBalls; }
 
     // Should balls sometimes change baskets?
-    private bool enableBasketChange;
-    public bool EnableBasketChange { get => enableBasketChange; }
+    // 0f <---> 1f
+    private float chanceOfBasketChange;
+    public float ChanceOfBasketChange { get => chanceOfBasketChange; }
 
     // Should skyfall mode be enabled?
     private bool enableSkyfall;
@@ -48,7 +49,7 @@ public class BallsBasketsGameSettings : GameSettings
     protected override void CopySettingsFromSO()
     {
         this.enableSelectingLeastBalls = _gameSettings_SO.EnableSelectingLeastBalls;
-        this.enableBasketChange = _gameSettings_SO.EnableBasketChange;
+        this.chanceOfBasketChange = _gameSettings_SO.ChanceOfBasketChange;
         this.enableSkyfall = _gameSettings_SO.EnableSkyfall;
 
         this.minBallCount = _gameSettings_SO.MinBallCount;

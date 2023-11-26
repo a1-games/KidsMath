@@ -118,6 +118,18 @@ public class BallSpawner : MonoBehaviour
         ballScript.OnSpawn(spawnPoints[selectedBasket].position);
         SpawnedBallCounts[selectedBasket]++;
 
+        // should the ball change basket?
+        if (BallsBasketsGameSettings.AskFor.ChanceOfBasketChange > 0f)
+        {
+            var result = Random.Range(0f, 1f);
+
+            // if we rolled within the chance, make the ball switch
+            if (result <= BallsBasketsGameSettings.AskFor.ChanceOfBasketChange)
+            {
+                ballScript.ActivateBasketSwitch();
+            }
+        }
+
         // keep track
         ballsToBeSpawned--;
     }
