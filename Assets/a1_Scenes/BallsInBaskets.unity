@@ -861,7 +861,7 @@ Transform:
   m_GameObject: {fileID: 2068677376}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3179.192, y: 2308.2388, z: 31.948242}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -912,7 +912,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballSpawner: {fileID: 2068677379}
-  currentBallType: 0
+  selectedBallType: 0
+  selectLeastBalls: {fileID: 11400000, guid: 87a8d9edf2997804cb71d223907f10a3, type: 2}
+  selectMostBalls: {fileID: 11400000, guid: 65b97fe7ded85e647a320dafbcc7bdd5, type: 2}
+  currentBallType:
+    _serializedList:
+    - Key: 4
+      Value: {fileID: 11400000, guid: 2ab51217fb78d4245b75140330021de4, type: 2}
+    - Key: 0
+      Value: {fileID: 11400000, guid: 08cd5681d8ef13a42969abf0939368ee, type: 2}
+    - Key: 1
+      Value: {fileID: 11400000, guid: 9e5f650c853578f42af6c776054640de, type: 2}
+    - Key: 2
+      Value: {fileID: 11400000, guid: 9da6593e66526a54294331d83c9ab3de, type: 2}
+    - Key: 3
+      Value: {fileID: 11400000, guid: 1553327bad994d74faa9ea88235f404d, type: 2}
   baskets:
   - {fileID: 1864054635}
   - {fileID: 1207735270}

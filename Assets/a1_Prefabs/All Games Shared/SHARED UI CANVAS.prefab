@@ -504,24 +504,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positive:
   - emote: {fileID: 21300000, guid: c8d6c7d267828064787f25cd28276def, type: 3}
-    message: Nice!
+    message: {fileID: 11400000, guid: c9727c30f78997f4287526914c7dbf2d, type: 2}
   - emote: {fileID: 21300000, guid: 1df6f8ffe2785a34c804f7ac2722d1c1, type: 3}
-    message: Awesome!
+    message: {fileID: 11400000, guid: 858e215440475d3408d94d91cc890762, type: 2}
+  - emote: {fileID: 21300000, guid: 29375e447a0a399408fc39ac6f02b165, type: 3}
+    message: {fileID: 11400000, guid: 527b0cdaa036a784cb9847a706e345d7, type: 2}
   - emote: {fileID: 21300000, guid: 03c53cb2275caeb499b436099669ae39, type: 3}
-    message: Lovely!
+    message: {fileID: 11400000, guid: 98af59aa74eff9b40be902d12d35e4db, type: 2}
   - emote: {fileID: 21300000, guid: b40a501f9d4f1aa44b09cd7e4191a749, type: 3}
-    message: Good job!
+    message: {fileID: 11400000, guid: e27bd673ea44a814e833c7707e5bdc3c, type: 2}
   - emote: {fileID: 21300000, guid: bf459ab46d852154e93f9e34ea403e2c, type: 3}
-    message: You're cool!
+    message: {fileID: 11400000, guid: 912e19e03ea2b8847b00d31fbdd4fa6d, type: 2}
   - emote: {fileID: 21300000, guid: 8fb60633b68f3d444a70c917502a294e, type: 3}
-    message: Right on the money!
+    message: {fileID: 11400000, guid: 8fbb77ab9bed3cc4fac5237378bc25ea, type: 2}
   negative:
   - emote: {fileID: 21300000, guid: 3ed93e930fc92cd4b9648ff5b62eba01, type: 3}
-    message: We'll get 'em next time!
+    message: {fileID: 11400000, guid: f90c3cda878e03947afc6d5d3ad1e912, type: 2}
   - emote: {fileID: 21300000, guid: 145be344cd9668943ba433d2b43e819b, type: 3}
-    message: You can do better!
+    message: {fileID: 11400000, guid: e0f60086c856c6b4d9959d8a3bb70402, type: 2}
   - emote: {fileID: 21300000, guid: 6a86c3bd144820949936c22471bb97a3, type: 3}
-    message: Needs more practice!
+    message: {fileID: 11400000, guid: 85d35f41cf49dfc4791908d636c8f80f, type: 2}
   screen: {fileID: 5686139804732671940}
   emojiImage: {fileID: 4349357170452507576}
   message_Text: {fileID: 4294648516586303056}
@@ -3055,13 +3057,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5404920164121454330}
+  - component: {fileID: 1132272909192611553}
   m_Layer: 5
   m_Name: Difficulty Selection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5404920164121454330
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3088,6 +3091,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1132272909192611553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6304540742787869027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aafd235c1ef7bf4fbdde88346f2319a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message_Text: {fileID: 2712296714859263669}
+  translation: {fileID: 11400000, guid: d58018f4e0ee36d4fa919b691b56a84c, type: 2}
 --- !u!1 &6425322117754495204
 GameObject:
   m_ObjectHideFlags: 0
@@ -4330,9 +4347,9 @@ MonoBehaviour:
   m_fontSize: 222
   m_fontSizeBase: 222
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 222
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 8192

@@ -38,8 +38,10 @@ public class Ball : MonoBehaviour
     public void JumpToOtherBasket(BasketID jumpFromBasket)
     {
         SwitchBasket = false;
-
-        Rb.AddForce(new Vector3(jumpFromBasket == BasketID.Left ? 5f : -5f, 20f, 0f), ForceMode.VelocityChange);
+        this.Rb.drag = 0.2f;
+        this.Rb.velocity = Vector3.zero;
+        // the random numbers are correct just dont mess with it
+        Rb.AddForce(new Vector3(jumpFromBasket == BasketID.Left ? Random.Range(2.9f, 3.16f) : Random.Range(-3.02f, -3.16f), Random.Range(7f, 10f), 0f), ForceMode.VelocityChange);
     }
 
 }

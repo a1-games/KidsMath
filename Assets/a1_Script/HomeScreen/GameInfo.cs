@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class GameInfo : MonoBehaviour
 {
-    [field: SerializeField] public string GameTitle { get; private set; }
+    [SerializeField] private Translation_SO gameTitle;
+    public string GameTitle { get => gameTitle[GlobalVariables.AppLanguage]; }
+
     [field: SerializeField] public MyGames Game { get; private set; }
-    [TextArea]
-    [SerializeField] private string gameDescription;
-    public string GameDescription { get => gameDescription; }
+
+    [SerializeField] private Translation_SO gameDescription;
+    public string GameDescription { get => gameDescription[GlobalVariables.AppLanguage]; }
 
     [field: SerializeField] public Sprite GameThumbnail { get; private set; }
     [field: SerializeField] public Image GameThumbnail_Image { get; private set; }

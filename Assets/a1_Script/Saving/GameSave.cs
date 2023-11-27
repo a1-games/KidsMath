@@ -38,6 +38,7 @@ public class GameSave : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    /// <returns>"" if not found.</returns>
     public static string GetString(string key)
     {
         return PlayerPrefs.GetString(key, "");

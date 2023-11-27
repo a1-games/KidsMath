@@ -1,3 +1,4 @@
+using AYellowpaper.SerializedCollections;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -21,7 +22,14 @@ public class BallsBasketsController : MonoBehaviour
     }
 
     [SerializeField] private BallSpawner ballSpawner;
-    [SerializeField] private BallType currentBallType;
+    [SerializedDictionary]
+    [SerializeField] private BallType selectedBallType;
+    [SerializeField] private Translation_SO selectLeastBalls;
+    [SerializeField] private Translation_SO selectMostBalls;
+    [SerializeField] private SerializedDictionary<BallType, Translation_SO> currentBallType = new SerializedDictionary<BallType, Translation_SO>();
+    public string CurrentBallType { get => currentBallType[selectedBallType][GlobalVariables.AppLanguage]; }
+
+
     [SerializeField] private Basket[] baskets;
 
     public Dictionary<BasketID, int> BallCounts { get; private set; } = new Dictionary<BasketID, int>()
@@ -73,13 +81,17 @@ public class BallsBasketsController : MonoBehaviour
     private bool selectGreatest = true;
     public void OnRoundOver()
     {
+        roundOver_Text.text = selectMostBalls[GlobalVariables.AppLanguage] + " " + CurrentBallType;
         if (BallsBasketsGameSettings.AskFor.EnableSelectingLeastBalls)
         {
             // ~50% chance of having to select the smallest number
             if (Random.Range(0, 2) == 0)
+            {
                 selectGreatest = false;
+                roundOver_Text.text = selectLeastBalls[GlobalVariables.AppLanguage] + " " + CurrentBallType;
+            }
         }
-        roundOver_Text.text = "Click on the basket with the " + (selectGreatest ? "greatest" : "least") + " amount of " + currentBallType + "s.";
+
         roundOver_Panel.SetActive(true);
         canClickBaskets = true;
 

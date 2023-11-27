@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public struct EmoteSet
 {
     public Sprite emote;
-    public string message;
+    public Translation_SO message;
 }
 public class EmotePanel : MonoBehaviour
 {
@@ -33,7 +33,7 @@ public class EmotePanel : MonoBehaviour
     {
         screen.SetActive(true);
         var index = UnityEngine.Random.Range(0, positive.Length);
-        message_Text.text = positive[index].message;
+        message_Text.text = positive[index].message[GlobalVariables.AppLanguage];
         emojiImage.sprite = positive[index].emote;
     }
 
@@ -42,7 +42,7 @@ public class EmotePanel : MonoBehaviour
     {
         screen.SetActive(true);
         var index = UnityEngine.Random.Range(0, negative.Length);
-        message_Text.text = negative[index].message;
+        message_Text.text = negative[index].message[GlobalVariables.AppLanguage];
         emojiImage.sprite = negative[index].emote;
     }
 
