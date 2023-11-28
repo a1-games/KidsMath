@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/a1_Scenes/BallsInBaskets.unity
     guid: 4906de56d0335e548bd95ec34cc7de13
+  - enabled: 1
+    path: Assets/a1_Scenes/FoldCube.unity
+    guid: e081e42918802be49b34d88a9fe9f786
   m_configObjects: {}
