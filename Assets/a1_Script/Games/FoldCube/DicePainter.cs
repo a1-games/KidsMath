@@ -76,9 +76,16 @@ public class DicePainter : MonoBehaviour
         for (int i = 0; i < foldedCubes.Length; i++)
         {
             if (i == correctCube) continue;
+
+            // switch two colours around so they aren't exactly the same as the correct cube
+            int indexToSwitch = UnityEngine.Random.Range(0, 5);
+            var tmpColor = randomizedColors[indexToSwitch];
+            randomizedColors[indexToSwitch] = randomizedColors[indexToSwitch+1];
+            randomizedColors[indexToSwitch+1] = tmpColor;
+
             ApplyColor(randomizedColors[0], foldedCubes[i].Top);
-            ApplyColor(randomizedColors[2], foldedCubes[i].Bottom);
-            ApplyColor(randomizedColors[1], foldedCubes[i].Right);
+            ApplyColor(randomizedColors[1], foldedCubes[i].Bottom);
+            ApplyColor(randomizedColors[2], foldedCubes[i].Right);
             ApplyColor(randomizedColors[3], foldedCubes[i].Left);
             ApplyColor(randomizedColors[4], foldedCubes[i].Front);
             ApplyColor(randomizedColors[5], foldedCubes[i].Back);
