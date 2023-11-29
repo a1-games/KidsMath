@@ -2,8 +2,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
-
+using UnityEngine.Assertions.Must;
 
 [Serializable]
 public struct ColourblindColor
@@ -13,17 +12,6 @@ public struct ColourblindColor
 }
 
 
-
-[Serializable]
-public struct CubeSides
-{
-    public MeshRenderer Top;
-    public MeshRenderer Bottom;
-    public MeshRenderer Right;
-    public MeshRenderer Left;
-    public MeshRenderer Front;
-    public MeshRenderer Back;
-}
 
 
 
@@ -36,12 +24,17 @@ public class DicePainter : MonoBehaviour
     [SerializeField]
     private ColourblindColor[] sixColors = new ColourblindColor[6];
 
-    [SerializeField] private CubeSides foldoutCube;
-
-    [SerializeField] private CubeSides[] foldedCubes = new CubeSides[4];
+    // the main fouldout
+    [SerializeField] private Cube foldoutCube;
+    // full dice
+    [SerializeField] private Cube[] foldedCubes = new Cube[4];
+    // only 3 of the sides
+    [SerializeField] private HalfCube[] halfCubes = new HalfCube[4];
 
 
     private ColourblindColor[] randomizedColors = new ColourblindColor[6];
+
+    public int CorrectCube { get; private set; } = -1;
 
     private void Start()
     {
@@ -50,45 +43,55 @@ public class DicePainter : MonoBehaviour
         SetChoiceCubes();
     }
 
-    private void ApplyColor(ColourblindColor colorPair, MeshRenderer rend)
+    private void ApplyColor(ColourblindColor colorPair, CubeSide cubeSide)
     {
-        rend.material.color = colorPair.Color;
+        cubeSide.CColor = colorPair;
+
+        cubeSide._Mesh.material.color = colorPair.Color;
         if (applyColourblindness)
-            rend.material.mainTexture = colorPair.Shape;
+            cubeSide._Mesh.material.mainTexture = colorPair.Shape;
     }
 
-    private void ApplyCubeColors(CubeSides cube)
+    private void ApplyCubeColors(Cube cube)
     {
         ApplyColor(randomizedColors[0], cube.Top);
-        ApplyColor(randomizedColors[1], cube.Bottom);
+        ApplyColor(randomizedColors[1], cube.Front);
         ApplyColor(randomizedColors[2], cube.Right);
-        ApplyColor(randomizedColors[3], cube.Left);
-        ApplyColor(randomizedColors[4], cube.Front);
-        ApplyColor(randomizedColors[5], cube.Back);
+        ApplyColor(randomizedColors[3], cube.Bottom);
+        ApplyColor(randomizedColors[4], cube.Back);
+        ApplyColor(randomizedColors[5], cube.Left);
     }
+
 
     private void SetChoiceCubes()
     {
-        int correctCube = UnityEngine.Random.Range(0, foldedCubes.Length);
+        CorrectCube = UnityEngine.Random.Range(0, foldedCubes.Length);
+        int frontRightLeft = 0;
 
-        ApplyCubeColors(foldedCubes[correctCube]);
+        ApplyCubeColors(foldedCubes[CorrectCube]);
 
         for (int i = 0; i < foldedCubes.Length; i++)
         {
-            if (i == correctCube) continue;
+            if (i == CorrectCube) continue;
+
+            ApplyCubeColors(foldedCubes[i]);
 
             // switch two colours around so they aren't exactly the same as the correct cube
-            int indexToSwitch = UnityEngine.Random.Range(0, 5);
-            var tmpColor = randomizedColors[indexToSwitch];
-            randomizedColors[indexToSwitch] = randomizedColors[indexToSwitch+1];
-            randomizedColors[indexToSwitch+1] = tmpColor;
 
-            ApplyColor(randomizedColors[0], foldedCubes[i].Top);
-            ApplyColor(randomizedColors[1], foldedCubes[i].Bottom);
-            ApplyColor(randomizedColors[2], foldedCubes[i].Right);
-            ApplyColor(randomizedColors[3], foldedCubes[i].Left);
-            ApplyColor(randomizedColors[4], foldedCubes[i].Front);
-            ApplyColor(randomizedColors[5], foldedCubes[i].Back);
+            if (frontRightLeft == 0)
+            {
+                ApplyColor(foldedCubes[i].Bottom.CColor, foldedCubes[i].Top);
+            }
+            if (frontRightLeft == 1)
+            {
+                ApplyColor(foldedCubes[i].Left.CColor, foldedCubes[i].Right);
+            }
+            if (frontRightLeft == 2)
+            {
+                ApplyColor(foldedCubes[i].Back.CColor, foldedCubes[i].Front);
+            }
+
+            frontRightLeft++;
         }
     }
 
