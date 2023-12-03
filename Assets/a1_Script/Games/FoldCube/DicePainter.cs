@@ -18,41 +18,28 @@ public struct ColourblindColor
 
 public class DicePainter : MonoBehaviour
 {
+    private static DicePainter instance;
+    public static DicePainter AskFor { get => instance; }
 
-    [SerializeField] private bool applyColourblindness;
-
-    [SerializeField]
-    private ColourblindColor[] sixColors = new ColourblindColor[6];
-
-    // the main fouldout
-    [SerializeField] private Cube foldoutCube;
-    // full dice
-    [SerializeField] private Cube[] foldedCubes = new Cube[4];
-    // only 3 of the sides
-    [SerializeField] private HalfCube[] halfCubes = new HalfCube[4];
-
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private ColourblindColor[] randomizedColors = new ColourblindColor[6];
 
-    public int CorrectCube { get; private set; } = -1;
+    private Cube[] foldedCubes { get => FoldCubeManager.AskFor.FoldedCubes; }
 
-    private void Start()
-    {
-        RandomizeColorList();
-        ApplyCubeColors(foldoutCube);
-        SetChoiceCubes();
-    }
-
-    private void ApplyColor(ColourblindColor colorPair, CubeSide cubeSide)
+    public void ApplyColor(ColourblindColor colorPair, CubeSide cubeSide)
     {
         cubeSide.CColor = colorPair;
 
         cubeSide._Mesh.material.color = colorPair.Color;
-        if (applyColourblindness)
+        if (FoldCube_GameSettings.AskFor.ApplyColourblindness)
             cubeSide._Mesh.material.mainTexture = colorPair.Shape;
     }
 
-    private void ApplyCubeColors(Cube cube)
+    public void ApplyCubeColors(Cube cube)
     {
         ApplyColor(randomizedColors[0], cube.Top);
         ApplyColor(randomizedColors[1], cube.Front);
@@ -63,16 +50,15 @@ public class DicePainter : MonoBehaviour
     }
 
 
-    private void SetChoiceCubes()
+    public void SetChoiceCubesHalf(int correctCube)
     {
-        CorrectCube = UnityEngine.Random.Range(0, foldedCubes.Length);
         int frontRightLeft = 0;
 
-        ApplyCubeColors(foldedCubes[CorrectCube]);
+        ApplyCubeColors(foldedCubes[correctCube]);
 
         for (int i = 0; i < foldedCubes.Length; i++)
         {
-            if (i == CorrectCube) continue;
+            if (i == correctCube) continue;
 
             ApplyCubeColors(foldedCubes[i]);
 
@@ -95,8 +81,45 @@ public class DicePainter : MonoBehaviour
         }
     }
 
+    public void SetChoiceCubesFull(int correctCube)
+    {
+        int frontRightLeft = 0;
 
-    private void RandomizeColorList()
+        ApplyCubeColors(foldedCubes[correctCube]);
+
+        for (int i = 0; i < foldedCubes.Length; i++)
+        {
+            if (i == correctCube) continue;
+
+            ApplyCubeColors(foldedCubes[i]);
+
+            // switch two colours around so they aren't exactly the same as the correct cube
+
+            if (frontRightLeft == 0)
+            {
+                var tmpCC = foldedCubes[i].Top.CColor;
+                ApplyColor(foldedCubes[i].Bottom.CColor, foldedCubes[i].Top);
+                ApplyColor(tmpCC, foldedCubes[i].Bottom);
+            }
+            if (frontRightLeft == 1)
+            {
+                var tmpCC = foldedCubes[i].Right.CColor;
+                ApplyColor(foldedCubes[i].Left.CColor, foldedCubes[i].Right);
+                ApplyColor(tmpCC, foldedCubes[i].Left);
+            }
+            if (frontRightLeft == 2)
+            {
+                var tmpCC = foldedCubes[i].Front.CColor;
+                ApplyColor(foldedCubes[i].Back.CColor, foldedCubes[i].Front);
+                ApplyColor(tmpCC, foldedCubes[i].Back);
+            }
+
+            frontRightLeft++;
+        }
+    }
+
+
+    public void RandomizeColorList()
     {
         List<int> numbers = new List<int>() { 0,1,2,3,4,5 };
 
@@ -104,7 +127,7 @@ public class DicePainter : MonoBehaviour
         {
             var rndNr = UnityEngine.Random.Range(0, numbers.Count);
 
-            var t = sixColors[numbers[rndNr]];
+            var t = FoldCube_GameSettings.AskFor.SixColors[numbers[rndNr]];
             randomizedColors[i] = t;
             numbers.RemoveAt(rndNr);
         }

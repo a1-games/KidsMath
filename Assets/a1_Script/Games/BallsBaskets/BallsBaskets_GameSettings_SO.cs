@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Difficulty_0", menuName = "ScriptableObjects/BallsBuckets/GameSettings", order = 1)]
+[CreateAssetMenu(fileName = "Difficulty_0", menuName = "ScriptableObjects/GameSettings/BallsBaskets", order = 1)]
 public class BallsBaskets_GameSettings_SO : ScriptableObject
 {
     [Header("You have to selected the lowest number sometimes:")]

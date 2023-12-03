@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00f09bbdf841d2499032a8161612904, type: 3}
+  m_Name: Difficulty_3
+  m_EditorClassIdentifier: 
+  <ApplyColourblindness>k__BackingField: 1
+  <SixColors>k__BackingField:
+  - Color: {r: 1, g: 0, b: 0, a: 1}
+    Shape: {fileID: 2800000, guid: e71bed91483133e4f81e976f00c0755f, type: 3}
+  - Color: {r: 1, g: 0, b: 0.8321705, a: 1}
+    Shape: {fileID: 2800000, guid: 7164887088f615a4aa5f4032781d344e, type: 3}
+  - Color: {r: 0.18926144, g: 0, b: 1, a: 1}
+    Shape: {fileID: 2800000, guid: a39b8ec2caad8074f85e7492e9e1e4e5, type: 3}
+  - Color: {r: 0, g: 0.91022253, b: 1, a: 1}
+    Shape: {fileID: 2800000, guid: 8555cb3fbc6b7ee47a3d02f51e062943, type: 3}
+  - Color: {r: 0, g: 1, b: 0.4234619, a: 1}
+    Shape: {fileID: 2800000, guid: 5a5d8ece240dca748853dcb1c41bb59f, type: 3}
+  - Color: {r: 0.9901843, g: 1, b: 0, a: 1}
+    Shape: {fileID: 2800000, guid: 3194eecc06b4ed94daa4f736876102e5, type: 3}

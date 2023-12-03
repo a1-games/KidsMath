@@ -14,6 +14,7 @@ public class GlobalVariables : MonoBehaviour
     public static Dictionary<MyGames, string> GameIDs { get; private set; } = new Dictionary<MyGames, string>()
     {
         { MyGames.BallsInBaskets, "BallsBaskets" },
+        { MyGames.FoldCube, "FoldCube" },
 
     };
 

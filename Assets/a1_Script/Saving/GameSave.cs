@@ -7,8 +7,12 @@ public class GameSave : MonoBehaviour
 
 
 
-    public static void IncreaseSavedInt(string key, int increment = 1)
-    {   
+    public static void IncreaseSavedGameInt(MyGames gameKey, int difficulty, bool gameWon, int increment = 1)
+    {
+        var key = $"{GlobalVariables.GameIDs[gameKey]}_D{difficulty}_WIN";
+        if (!gameWon)
+            key = $"{GlobalVariables.GameIDs[gameKey]}_D{difficulty}_LOSE";
+
         int nr = PlayerPrefs.GetInt(key, 0);
 
         PlayerPrefs.SetInt(key, nr + increment);

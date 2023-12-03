@@ -11,7 +11,7 @@ public enum BasketID
     Right,
 }
 
-public class BallsBasketsController : MonoBehaviour
+public class BallsBasketsController : GameManager
 {
     private static BallsBasketsController instance;
     public static BallsBasketsController AskFor { get => instance; }
@@ -41,7 +41,12 @@ public class BallsBasketsController : MonoBehaviour
     private bool canClickBaskets = false;
 
 
-    public void ResetGame()
+    public override void StartGame()
+    {
+        ballSpawner.ActivateSpawner();
+    }
+
+    public override void ResetGame()
     {
         BallCounts.Clear();
         BallCounts = new Dictionary<BasketID, int>() {
@@ -62,10 +67,6 @@ public class BallsBasketsController : MonoBehaviour
         CheckIfRoundOver();
     }
 
-    public void StartGame()
-    {
-        ballSpawner.ActivateSpawner();
-    }
 
     public void CheckIfRoundOver()
     {
@@ -141,25 +142,17 @@ public class BallsBasketsController : MonoBehaviour
 
 
 
-    private void CorrectAnswer()
+    protected override void CorrectAnswer()
     {
-        print("Answer was correct");
         EmotePanel.AskFor.ShowCorrect();
-
-        // save the victory
-        var difficulty = BallsBasketsGameSettings.AskFor.Difficulty;
-        GameSave.IncreaseSavedInt($"{GlobalVariables.GameIDs[MyGames.BallsInBaskets]}_D{difficulty}_WIN");
+        GameSave.IncreaseSavedGameInt(MyGames.BallsInBaskets, BallsBasketsGameSettings.AskFor.Difficulty, true, 1);
     }
 
 
-    private void IncorrectAnswer()
+    protected override void IncorrectAnswer()
     {
-        print("Answer was incorrect");
         EmotePanel.AskFor.ShowIncorrect();
-
-        // save the loss
-        var difficulty = BallsBasketsGameSettings.AskFor.Difficulty;
-        GameSave.IncreaseSavedInt($"{GlobalVariables.GameIDs[MyGames.BallsInBaskets]}_D{difficulty}_LOSE");
+        GameSave.IncreaseSavedGameInt(MyGames.BallsInBaskets, BallsBasketsGameSettings.AskFor.Difficulty, false, 1);
     }
 
 
