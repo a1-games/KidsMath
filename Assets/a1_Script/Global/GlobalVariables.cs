@@ -1,9 +1,7 @@
 
-using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class GlobalVariables : MonoBehaviour
+public static class GlobalVariables
 {
 
     public static bool ClickedLogInScreenThisSession { get; set; } = false;

@@ -39,8 +39,8 @@ public class StatsLoader : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            var wins = GameSave.GetInt($"{GlobalVariables.GameIDs[gameInfo.Game]}_D{i+1}_WIN");
-            var losses = GameSave.GetInt($"{GlobalVariables.GameIDs[gameInfo.Game]}_D{i+1}_LOSE");
+            var wins = GameSave.GetSavedGameInt(gameInfo.Game, i, true);
+            var losses = GameSave.GetSavedGameInt(gameInfo.Game, i, false);
 
             difficultyStats_Texts[i].wins.text = wins.ToString();
             difficultyStats_Texts[i].losses.text = losses.ToString();

@@ -18,6 +18,18 @@ public class GameSave : MonoBehaviour
         PlayerPrefs.SetInt(key, nr + increment);
         PlayerPrefs.Save();
     }
+    
+
+    public static int GetSavedGameInt(MyGames gameKey, int difficulty, bool gameWon)
+    {
+        var key = $"{GlobalVariables.GameIDs[gameKey]}_D{difficulty}_WIN";
+        if (!gameWon)
+            key = $"{GlobalVariables.GameIDs[gameKey]}_D{difficulty}_LOSE";
+
+        int nr = PlayerPrefs.GetInt(key, 0);
+
+        return nr;
+    }
 
 
 
