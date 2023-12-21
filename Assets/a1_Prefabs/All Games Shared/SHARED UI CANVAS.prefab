@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 5833993030688126394}
   - component: {fileID: 595689269044915851}
   - component: {fileID: 4184370507444906390}
+  - component: {fileID: 3928046084242170398}
   m_Layer: 0
   m_Name: Shared Game Manager
   m_TagString: Untagged
@@ -593,6 +594,21 @@ MonoBehaviour:
   onLanguageChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3928046084242170398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749246036719587962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8006b5812637c3742ae2579c1c3a1622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTitle: {fileID: 3041721787539188248}
+  gameDescription: {fileID: 8158850407925357248}
+  gameThumbnail: {fileID: 7218089414451856739}
 --- !u!1 &983461482629196855
 GameObject:
   m_ObjectHideFlags: 0
@@ -5336,7 +5352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6479720148846832943, guid: 3a3d2e2628233a64baa041af1cdbf268, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6874678188288570526, guid: 3a3d2e2628233a64baa041af1cdbf268, type: 3}
       propertyPath: m_Pivot.x

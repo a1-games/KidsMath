@@ -103,8 +103,6 @@ public class BallSpawner : MonoBehaviour
                 biggestBasket = BasketID.Right;
                 smallestBasket = BasketID.Left;
             }
-            print("big: " + SpawnedBallCounts[biggestBasket] + " small: " + SpawnedBallCounts[smallestBasket]);
-
 
             // if the last ball is a tiebreaker, ALWAYS break the tie. NEVER end in a tie!
             if (SpawnedBallCounts[smallestBasket] + 1 == SpawnedBallCounts[biggestBasket])
@@ -116,7 +114,6 @@ public class BallSpawner : MonoBehaviour
         // spawn ball
         var ballScript = Instantiate(ballPrefab).GetComponent<Ball>();
         ballScript.OnSpawn(spawnPoints[selectedBasket].position);
-        SpawnedBallCounts[selectedBasket]++;
 
         // should the ball change basket?
         if (BallsBasketsGameSettings.AskFor.ChanceOfBasketChange > 0f)
@@ -127,8 +124,12 @@ public class BallSpawner : MonoBehaviour
             if (result <= BallsBasketsGameSettings.AskFor.ChanceOfBasketChange)
             {
                 ballScript.ActivateBasketSwitch();
+                // invert the selected basket
+                selectedBasket = selectedBasket == BasketID.Left ? BasketID.Right : BasketID.Left;
             }
         }
+
+        SpawnedBallCounts[selectedBasket]++;
 
         // keep track
         ballsToBeSpawned--;

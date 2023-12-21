@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class LoginScreen : MonoBehaviour
 {
-    [SerializeField] private GameObject loadingScreenGameObject;
+    [SerializeField] private GameObject loginScreenPanel;
 
     private void Awake()
     {
-        loadingScreenGameObject.SetActive(false);
+        loginScreenPanel.SetActive(false);
         if (GlobalVariables.ClickedLogInScreenThisSession) return;
-        loadingScreenGameObject.SetActive(true);
+        loginScreenPanel.SetActive(true);
     }
 }

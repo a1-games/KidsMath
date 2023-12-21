@@ -46,4 +46,11 @@ public class StatsLoader : MonoBehaviour
             difficultyStats_Texts[i].losses.text = losses.ToString();
         }
     }
+
+
+
+    public string GetTranslation(SupportedLanguages lang)
+    {
+        return "";
+    }
 }

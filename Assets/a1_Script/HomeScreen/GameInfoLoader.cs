@@ -41,6 +41,14 @@ public class GameInfoLoader : MonoBehaviour
             StatsLoader.AskFor.LoadGameStatsInDifficulty(gameInfo);
         });
         gameInfoPanel.SetActive(true);
+
+        var gis = new GameInfoStruct()
+        {
+            Title = gameTitle.text,
+            Description = gameDescription.text,
+            Thumbnail = gameThumbnail.sprite,
+        };
+        GlobalVariables.SelectedGameInfo = gis;
     }
 
 

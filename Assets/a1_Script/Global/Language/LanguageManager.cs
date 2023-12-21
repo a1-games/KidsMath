@@ -51,9 +51,8 @@ public class LanguageManager : MonoBehaviour
             if (lang == ((SupportedLanguages)i).ToString())
             {
                 GlobalVariables.AppLanguage = (SupportedLanguages)i;
-                print("Selected the language: " + lang);
+                Debug.Log("Selected the language: " + lang);
             }
         }
-
     }
 }

@@ -5,11 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Difficulty_0", menuName = "ScriptableObjects/GameSettings/BallsBaskets", order = 1)]
 public class BallsBaskets_GameSettings_SO : ScriptableObject
 {
-    [Header("You have to selected the lowest number sometimes:")]
+    [Header("Sometimes Select Least Instead Of Most:")]
     // Should balls sometimes change baskets?
     [SerializeField] private bool enableSelectingLeastBalls = false;
 
-    [Header("Ball Sometimes Switch Basket:")]
+    [Header("Balls Sometimes Switch Basket:")]
     // Should balls sometimes change baskets?
     [Range(0f, 1f)]
     [SerializeField] private float chanceOfBasketChange = 0f;
