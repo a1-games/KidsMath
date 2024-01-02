@@ -65,14 +65,14 @@ public class FoldCubeManager : GameManager
     protected override void CorrectAnswer()
     {
         EmotePanel.AskFor.ShowCorrect();
-        GameSave.IncreaseSavedGameInt(MyGames.FoldCube, 0, true, 1);
+        GameSave.IncreaseSavedGameInt(MyGames.FoldCube, FoldCube_GameSettings.AskFor.Difficulty, true, 1);
     }
 
 
     protected override void IncorrectAnswer()
     {
         EmotePanel.AskFor.ShowIncorrect();
-        GameSave.IncreaseSavedGameInt(MyGames.FoldCube, 0, false, 1);
+        GameSave.IncreaseSavedGameInt(MyGames.FoldCube, FoldCube_GameSettings.AskFor.Difficulty, false, 1);
     }
 
 }
