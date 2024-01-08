@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 [Serializable]
@@ -26,7 +27,8 @@ public class EmotePanel : MonoBehaviour
     [SerializeField] private Image emojiImage;
     [SerializeField] private TMP_Text message_Text;
 
-
+    [SerializeField] private UnityEvent onCorrectAnswer;
+    [SerializeField] private UnityEvent onIncorrectAnswer;
 
 
     public void ShowCorrect()
@@ -35,6 +37,7 @@ public class EmotePanel : MonoBehaviour
         var index = UnityEngine.Random.Range(0, positive.Length);
         message_Text.text = positive[index].message[GlobalVariables.AppLanguage];
         emojiImage.sprite = positive[index].emote;
+        onCorrectAnswer.Invoke();
     }
 
     
@@ -44,6 +47,7 @@ public class EmotePanel : MonoBehaviour
         var index = UnityEngine.Random.Range(0, negative.Length);
         message_Text.text = negative[index].message[GlobalVariables.AppLanguage];
         emojiImage.sprite = negative[index].emote;
+        onIncorrectAnswer.Invoke();
     }
 
 

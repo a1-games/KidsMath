@@ -1202,16 +1202,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5833993030688126394, guid: 75ff12071c0ee6548a610816eb807e94, type: 3}
       propertyPath: on3DObjectClicked.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5833993030688126394, guid: 75ff12071c0ee6548a610816eb807e94, type: 3}
       propertyPath: on3DObjectClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5833993030688126394, guid: 75ff12071c0ee6548a610816eb807e94, type: 3}
       propertyPath: on3DObjectClicked.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5833993030688126394, guid: 75ff12071c0ee6548a610816eb807e94, type: 3}
+      propertyPath: on3DObjectClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2068677381}
     - target: {fileID: 5833993030688126394, guid: 75ff12071c0ee6548a610816eb807e94, type: 3}
       propertyPath: on3DObjectClicked.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1221,12 +1225,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5833993030688126394, guid: 75ff12071c0ee6548a610816eb807e94, type: 3}
+      propertyPath: on3DObjectClicked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BasketClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833993030688126394, guid: 75ff12071c0ee6548a610816eb807e94, type: 3}
       propertyPath: on3DObjectClicked.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: BasketClicked
       objectReference: {fileID: 0}
     - target: {fileID: 5833993030688126394, guid: 75ff12071c0ee6548a610816eb807e94, type: 3}
       propertyPath: on3DObjectClicked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SoundReference, Assembly-CSharp
+      value: BallsBasketsController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5833993030688126394, guid: 75ff12071c0ee6548a610816eb807e94, type: 3}
       propertyPath: on3DObjectClicked.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName

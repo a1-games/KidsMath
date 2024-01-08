@@ -13,7 +13,6 @@ public class GameInfo : MonoBehaviour
 
     private void Awake()
     {
-        openGameInfo_Button.onClick.RemoveAllListeners();
         openGameInfo_Button.onClick.AddListener(() => GameInfoLoader.AskFor.ShowGameInfo(GameInfoSO));
 
         GameThumbnail_Image.sprite = GameInfoSO.GameThumbnail;

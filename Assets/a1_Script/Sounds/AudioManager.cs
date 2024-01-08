@@ -31,11 +31,12 @@ public class AudioManager : MonoBehaviour
     [field: SerializeField]
     public SerializedDictionary<SoundKey, AudioSource> AudioSources { get; private set; }
 
-    public void PlaySound(AudioClip clip, SoundKey track)
+    public void PlaySound(AudioClip clip, SoundKey track, float _volume = 1f)
     {
         var _as = AudioSources[track];
         _as.clip = clip;
-        _as.volume = Volume;
+        _as.volume = Volume * _volume;
+        _as.pitch = Random.Range(0.95f, 1.1f);
         _as.Play();
     }
 
