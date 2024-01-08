@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4302560540649099816}
   - component: {fileID: 1273459703498826548}
   - component: {fileID: 928181430717013135}
+  - component: {fileID: 6180428349620212554}
   m_Layer: 5
   m_Name: Game Item Frame
   m_TagString: Untagged
@@ -60,9 +61,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765a348a433e84944be1d95edc8be7ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <GameTitle>k__BackingField: Balls in Baskets
-  <GameSceneName>k__BackingField: BallsBaskets
-  gameDescription: Count how many balls are in each basket.
+  gameTitle: {fileID: 0}
+  gameDescription: {fileID: 0}
+  <Game>k__BackingField: 0
   <GameThumbnail>k__BackingField: {fileID: 21300000, guid: ad7bd53f8755d47b5846fac5f6dddf79, type: 3}
   <GameThumbnail_Image>k__BackingField: {fileID: 1608385502309783547}
   openGameInfo_Button: {fileID: 1273459703498826548}
@@ -140,6 +141,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6180428349620212554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191645325253658150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dadb5cc6b43744447bb09b8c5ce3890b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1489137809545673132
 GameObject:
   m_ObjectHideFlags: 0

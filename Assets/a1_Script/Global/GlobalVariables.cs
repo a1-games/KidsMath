@@ -2,19 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct GameInfoStruct
-{
-    public string Title;
-    public string Description;
-    public Sprite Thumbnail;
-}
 
 public class GlobalVariables : MonoBehaviour
 {
 
     public static bool ClickedLogInScreenThisSession { get; set; } = false;
 
-    public static GameInfoStruct SelectedGameInfo { get; set; }
+    public static GameInfo_SO SelectedGameInfo { get; set; }
 
     public static SupportedLanguages AppLanguage { get; set; } = SupportedLanguages.English;
 

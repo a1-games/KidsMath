@@ -7,29 +7,30 @@ using UnityEngine.UI;
 
 public class IngameInfo : MonoBehaviour
 {
+    [SerializeField] private GameInfo_SO gameInfo;
 
     [SerializeField] private TMP_Text gameTitle;
     [SerializeField] private TMP_Text gameDescription;
 
     [SerializeField] private Image gameThumbnail;
 
-    private void Start()
+    private void Awake()
     {
+        GlobalVariables.SelectedGameInfo = gameInfo;
         LoadCurrentGameInfo();
     }
 
-    private void LoadCurrentGameInfo()
+    public void LoadCurrentGameInfo()
     {
         var info = GlobalVariables.SelectedGameInfo;
 
-        if (info.Thumbnail != null)
+        if (info.GameThumbnail != null)
         {
-            gameThumbnail.sprite = info.Thumbnail;
-            gameTitle.text = info.Title;
-            gameDescription.text = info.Description;
+            gameThumbnail.sprite = gameInfo.GameThumbnail;
+            gameTitle.text = gameInfo.GameTitle[GlobalVariables.AppLanguage];
+            gameDescription.text = gameInfo.GameDescription[GlobalVariables.AppLanguage];
         }
     }
-
 
 
 }

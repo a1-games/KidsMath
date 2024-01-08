@@ -24,31 +24,27 @@ public class GameInfoLoader : MonoBehaviour
     [SerializeField] private Button playThisGameButton;
     [SerializeField] private Button viewGameStatsButton;
 
-
-    public void ShowGameInfo(GameInfo gameInfo)
+    private void Start()
     {
-        gameTitle.text = gameInfo.GameTitle;
-        gameDescription.text = gameInfo.GameDescription;
-        gameThumbnail.sprite = gameInfo.GameThumbnail;
-        playThisGameButton.onClick.RemoveAllListeners();
         playThisGameButton.onClick.AddListener(() => {
             // 2 load scene
-            SceneLoader.LoadScene(gameInfo.Game.ToString());
+            SceneLoader.LoadScene(GlobalVariables.SelectedGameInfo.Game.ToString());
         });
-        viewGameStatsButton.onClick.RemoveAllListeners();
         viewGameStatsButton.onClick.AddListener(() => {
             // load stats
-            StatsLoader.AskFor.LoadGameStatsInDifficulty(gameInfo);
+            StatsLoader.AskFor.LoadGameStatsInDifficulty(GlobalVariables.SelectedGameInfo);
         });
+    }
+
+    public void ShowGameInfo(GameInfo_SO gameInfo)
+    {
+        gameTitle.text = gameInfo.GameTitle[GlobalVariables.AppLanguage];
+        gameDescription.text = gameInfo.GameDescription[GlobalVariables.AppLanguage];
+        gameThumbnail.sprite = gameInfo.GameThumbnail;
+
         gameInfoPanel.SetActive(true);
 
-        var gis = new GameInfoStruct()
-        {
-            Title = gameTitle.text,
-            Description = gameDescription.text,
-            Thumbnail = gameThumbnail.sprite,
-        };
-        GlobalVariables.SelectedGameInfo = gis;
+        GlobalVariables.SelectedGameInfo = gameInfo;
     }
 
 

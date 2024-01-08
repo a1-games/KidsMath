@@ -29,10 +29,10 @@ public class StatsLoader : MonoBehaviour
 
 
 
-    public void LoadGameStatsInDifficulty(GameInfo gameInfo)
+    public void LoadGameStatsInDifficulty(GameInfo_SO gameInfo)
     {
         if (difficultyStats_Texts.Length != 5) throw new Exception("There must be 5 difficulties defined in the array in the inspector!");
-        gameTitle_Text.text = gameInfo.GameTitle;
+        gameTitle_Text.text = gameInfo.GameTitle[GlobalVariables.AppLanguage];
         gameThumbnail.sprite = gameInfo.GameThumbnail;
 
         statsPanel.SetActive(true);
